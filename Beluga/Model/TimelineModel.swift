@@ -1,9 +1,8 @@
 import Foundation
 
 class TimelineModel: ObservableObject {
-    @Published var messages = [Message]()
-    func fetchMessages(){
-        guard let url = URL(string: "https://beluga.fm/api/v1/timeline/channel?channel_id=2") else { return }
+    func fetchMessages(resolve: @escaping ([Message]) -> Void){
+        guard let url = URL(string: "https://beluga.fm/api/v1/timeline/channel_debug?channel_id=2") else { return }
         URLSession.shared.dataTask(with: url) {(data, response, error) in
             do {
                 guard let responseData = data else {
@@ -14,9 +13,8 @@ class TimelineModel: ObservableObject {
                     print("Failed to load messages")
                     return
                 }
-                self.messages = messages
-                print("Loaded", self.messages.count, "messages")
-                
+                print("Loaded", messages.count, "messages")
+                resolve(messages.reversed())
             } catch {
                 print("Error", error)
             }

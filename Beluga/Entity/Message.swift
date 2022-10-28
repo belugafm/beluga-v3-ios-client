@@ -52,7 +52,7 @@ struct Message:Identifiable, Codable {
     let user_id: Int
     let user: User?
     let text: String
-    let created_at: Date
+    let created_at: String
     let favorite_count: Int
     let favorited: Bool
     let like_count: Int

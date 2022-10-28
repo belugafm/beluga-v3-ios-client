@@ -21,6 +21,10 @@
 		44FBB337290BD22E00642786 /* ChannelGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB336290BD22E00642786 /* ChannelGroup.swift */; };
 		44FBB339290BD31600642786 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB338290BD31600642786 /* File.swift */; };
 		44FBB33D290BD46900642786 /* TimelineChannelJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB33C290BD46900642786 /* TimelineChannelJsonResponse.swift */; };
+		44FBB342290BFB9800642786 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB341290BFB9800642786 /* MessageView.swift */; };
+		44FBB344290BFBDF00642786 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB343290BFBDF00642786 /* MessageViewModel.swift */; };
+		44FBB346290BFEE100642786 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB345290BFEE100642786 /* TimelineViewModel.swift */; };
+		44FBB348290BFF2500642786 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB347290BFF2500642786 /* TimelineView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,10 @@
 		44FBB336290BD22E00642786 /* ChannelGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelGroup.swift; sourceTree = "<group>"; };
 		44FBB338290BD31600642786 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		44FBB33C290BD46900642786 /* TimelineChannelJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineChannelJsonResponse.swift; sourceTree = "<group>"; };
+		44FBB341290BFB9800642786 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		44FBB343290BFBDF00642786 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		44FBB345290BFEE100642786 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		44FBB347290BFF2500642786 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				44FBB3022906A31000642786 /* BelugaApp.swift */,
+				44FBB33E290BFB2C00642786 /* View */,
 				44FBB33A290BD42200642786 /* JsonResponse */,
 				44FBB32F290BCF1C00642786 /* Entity */,
 				44FBB3042906A31000642786 /* ContentView.swift */,
@@ -178,6 +187,33 @@
 				44FBB33C290BD46900642786 /* TimelineChannelJsonResponse.swift */,
 			);
 			path = Timeline;
+			sourceTree = "<group>";
+		};
+		44FBB33E290BFB2C00642786 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44FBB340290BFB8600642786 /* Message */,
+				44FBB33F290BFB4000642786 /* Timeline */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44FBB33F290BFB4000642786 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				44FBB345290BFEE100642786 /* TimelineViewModel.swift */,
+				44FBB347290BFF2500642786 /* TimelineView.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		44FBB340290BFB8600642786 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				44FBB341290BFB9800642786 /* MessageView.swift */,
+				44FBB343290BFBDF00642786 /* MessageViewModel.swift */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,15 +346,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44FBB344290BFBDF00642786 /* MessageViewModel.swift in Sources */,
+				44FBB346290BFEE100642786 /* TimelineViewModel.swift in Sources */,
 				44FBB331290BCF2800642786 /* Message.swift in Sources */,
 				44FBB335290BD13300642786 /* User.swift in Sources */,
 				44FBB337290BD22E00642786 /* ChannelGroup.swift in Sources */,
 				44FBB3052906A31000642786 /* ContentView.swift in Sources */,
+				44FBB342290BFB9800642786 /* MessageView.swift in Sources */,
 				44FBB3032906A31000642786 /* BelugaApp.swift in Sources */,
 				44FBB339290BD31600642786 /* File.swift in Sources */,
 				44FBB32E290BCD6F00642786 /* TimelineModel.swift in Sources */,
 				44FBB33D290BD46900642786 /* TimelineChannelJsonResponse.swift in Sources */,
 				44FBB333290BD12700642786 /* Channel.swift in Sources */,
+				44FBB348290BFF2500642786 /* TimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

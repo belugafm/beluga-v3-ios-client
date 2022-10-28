@@ -4,10 +4,7 @@ struct ContentView: View {
     @State var timelineModel: TimelineModel
     var body: some View {
         VStack {
-            Button("Button")
-            {
-                timelineModel.fetchMessages()
-            }
+            TimelineView()
         }
         .padding()
     }
