@@ -25,6 +25,10 @@
 		44FBB344290BFBDF00642786 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB343290BFBDF00642786 /* MessageViewModel.swift */; };
 		44FBB346290BFEE100642786 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB345290BFEE100642786 /* TimelineViewModel.swift */; };
 		44FBB348290BFF2500642786 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB347290BFF2500642786 /* TimelineView.swift */; };
+		44FBB34A290D74B200642786 /* OAuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB349290D74B200642786 /* OAuthModel.swift */; };
+		44FBB34F290D76CD00642786 /* Config.template.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB34E290D76CD00642786 /* Config.template.swift */; };
+		44FBB355290D77AE00642786 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB354290D77AE00642786 /* Config.swift */; };
+		44FBB358290D780D00642786 /* RequestTokenJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB357290D780D00642786 /* RequestTokenJsonResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,11 @@
 		44FBB343290BFBDF00642786 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		44FBB345290BFEE100642786 /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		44FBB347290BFF2500642786 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		44FBB349290D74B200642786 /* OAuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthModel.swift; sourceTree = "<group>"; };
+		44FBB34E290D76CD00642786 /* Config.template.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.template.swift; sourceTree = "<group>"; };
+		44FBB354290D77AE00642786 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		44FBB357290D780D00642786 /* RequestTokenJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenJsonResponse.swift; sourceTree = "<group>"; };
+		44FBB35B290D985200642786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +125,9 @@
 		44FBB3012906A31000642786 /* Beluga */ = {
 			isa = PBXGroup;
 			children = (
+				44FBB35B290D985200642786 /* Info.plist */,
 				44FBB3022906A31000642786 /* BelugaApp.swift */,
+				44FBB34D290D76C200642786 /* Config */,
 				44FBB33E290BFB2C00642786 /* View */,
 				44FBB33A290BD42200642786 /* JsonResponse */,
 				44FBB32F290BCF1C00642786 /* Entity */,
@@ -157,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				44FBB32D290BCD6F00642786 /* TimelineModel.swift */,
+				44FBB349290D74B200642786 /* OAuthModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +188,7 @@
 		44FBB33A290BD42200642786 /* JsonResponse */ = {
 			isa = PBXGroup;
 			children = (
+				44FBB356290D77FD00642786 /* OAuth */,
 				44FBB33B290BD45F00642786 /* Timeline */,
 			);
 			path = JsonResponse;
@@ -214,6 +227,23 @@
 				44FBB343290BFBDF00642786 /* MessageViewModel.swift */,
 			);
 			path = Message;
+			sourceTree = "<group>";
+		};
+		44FBB34D290D76C200642786 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				44FBB34E290D76CD00642786 /* Config.template.swift */,
+				44FBB354290D77AE00642786 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		44FBB356290D77FD00642786 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				44FBB357290D780D00642786 /* RequestTokenJsonResponse.swift */,
+			);
+			path = OAuth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,16 +377,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				44FBB344290BFBDF00642786 /* MessageViewModel.swift in Sources */,
+				44FBB34F290D76CD00642786 /* Config.template.swift in Sources */,
 				44FBB346290BFEE100642786 /* TimelineViewModel.swift in Sources */,
 				44FBB331290BCF2800642786 /* Message.swift in Sources */,
+				44FBB358290D780D00642786 /* RequestTokenJsonResponse.swift in Sources */,
 				44FBB335290BD13300642786 /* User.swift in Sources */,
 				44FBB337290BD22E00642786 /* ChannelGroup.swift in Sources */,
 				44FBB3052906A31000642786 /* ContentView.swift in Sources */,
 				44FBB342290BFB9800642786 /* MessageView.swift in Sources */,
+				44FBB34A290D74B200642786 /* OAuthModel.swift in Sources */,
 				44FBB3032906A31000642786 /* BelugaApp.swift in Sources */,
 				44FBB339290BD31600642786 /* File.swift in Sources */,
 				44FBB32E290BCD6F00642786 /* TimelineModel.swift in Sources */,
 				44FBB33D290BD46900642786 /* TimelineChannelJsonResponse.swift in Sources */,
+				44FBB355290D77AE00642786 /* Config.swift in Sources */,
 				44FBB333290BD12700642786 /* Channel.swift in Sources */,
 				44FBB348290BFF2500642786 /* TimelineView.swift in Sources */,
 			);
@@ -519,6 +553,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Beluga/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Beluga/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -548,6 +583,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Beluga/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Beluga/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
