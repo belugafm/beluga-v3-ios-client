@@ -12,12 +12,12 @@ struct TimelineView: View {
                     }
                 }
             }
-            Button("Load messages")
-            {
-                timelineModel.fetchMessages { messages in
-                    DispatchQueue.main.async {
+            Button("Load messages") {
+                Task {
+                    do {
+                        let messages = try await timelineModel.fetchMessages()
                         timelineViewModel.setMessages(messages: messages)
-                    }
+                    } catch {}
                 }
             }
         }

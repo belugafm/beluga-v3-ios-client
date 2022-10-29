@@ -1,7 +1,6 @@
 import XCTest
 
 final class BelugaUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

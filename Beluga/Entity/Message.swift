@@ -1,43 +1,41 @@
 import Foundation
 
-
-struct MessageEntityChannel:Codable{
+struct MessageEntityChannel: Codable {
     let channel_id: Int
     let channel: Channel?
-    let indices:[Int]
+    let indices: [Int]
 }
 
-struct MessageEntityChannelGroup:Codable{
+struct MessageEntityChannelGroup: Codable {
     let channel_group_id: Int
     let channel_group: ChannelGroup?
-    let indices:[Int]
+    let indices: [Int]
 }
 
-struct MessageEntityMessage:Codable{
+struct MessageEntityMessage: Codable {
     let message_id: Int
     let message: Message?
-    let indices:[Int]
+    let indices: [Int]
 }
 
-struct MessageEntityFile:Codable{
+struct MessageEntityFile: Codable {
     let file_id: Int
     let file: File?
-    let indices:[Int]
+    let indices: [Int]
 }
 
-struct MessageEntityUrl:Codable{
+struct MessageEntityUrl: Codable {
     let title: String
     let description: String?
     let image_url: String?
-    let indices:[Int]
+    let indices: [Int]
 }
 
-struct MessageEntityStyle:Codable{
-}
+struct MessageEntityStyle: Codable {}
 
-struct MessageEntities:Codable{
+struct MessageEntities: Codable {
     let channels: [MessageEntityChannel]
-    let channel_groups:[MessageEntityChannelGroup]
+    let channel_groups: [MessageEntityChannelGroup]
     let messages: [MessageEntityMessage]
     let files: [MessageEntityFile]
     let urls: [MessageEntityUrl]
@@ -45,7 +43,7 @@ struct MessageEntities:Codable{
     let style: [MessageEntityStyle]
 }
 
-struct Message:Identifiable, Codable {
+struct Message: Identifiable, Codable {
     let id: Int
     let channel_id: Int
     let channel: Channel?
