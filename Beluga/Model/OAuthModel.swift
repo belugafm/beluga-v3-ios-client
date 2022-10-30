@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 extension CharacterSet {
     static var urlRFC3986Allowed: CharacterSet {
@@ -13,6 +14,10 @@ extension String {
 }
 
 extension Array where Element == URLQueryItem {
+    func getValue(for name: String) -> String? {
+        return self.filter { $0.name == name }.first?.value
+    }
+
     func buildQueryString() -> String {
         guard self.count > 0 else {
             return ""
@@ -27,14 +32,21 @@ extension Array where Element == URLQueryItem {
     }
 }
 
-struct OAuthModel {
+class OAuthModel: ObservableObject {
+    @AppStorage("accessToken") var accessToken = "null"
+    @AppStorage("accessTokenSecret") var accessTokenSecret = "null"
+    func needsLogin() -> Bool {
+        if self.accessToken == "null" {
+            return true
+        }
+        if self.accessTokenSecret == "null" {
+            return true
+        }
+        return false
+    }
+
     func fetchRequestToken() async throws -> (requestToken: String, requestTokenSecret: String) {
-//        let parameters = [
-//            URLQueryItem(name: "consumer_key", value: Config.consumerKey),
-//            URLQueryItem(name: "consumer_secret", value: Config.consumerSecret),
-//        ]
-//        let query = parameters.buildQueryString()
-        guard let url = URL(string: "https://beluga.fm/api/v1/oauth/request_token") else {
+        guard let url = URL(string: "\(Config.apiBaseUrl)/oauth/request_token") else {
             throw ApiError.invalidEndpointUrl
         }
         let query = ["consumer_key": Config.consumerKey, "consumer_secret": Config.consumerSecret]

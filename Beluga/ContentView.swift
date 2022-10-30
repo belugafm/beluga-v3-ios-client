@@ -2,14 +2,19 @@ import SwiftUI
 
 struct ContentView: View {
     @State var timelineModel: TimelineModel
+    @EnvironmentObject var oAuthModel: OAuthModel
     var body: some View {
         VStack {
             TimelineView()
+            Text(oAuthModel.accessToken)
+            Text(oAuthModel.accessTokenSecret)
             Button("Login") {
                 Task {
+                    guard oAuthModel.needsLogin() else {
+                        return
+                    }
                     do {
-                        let model = OAuthModel()
-                        let (requestToken, requestTokenSecret) = try await model.fetchRequestToken()
+                        let (requestToken, requestTokenSecret) = try await oAuthModel.fetchRequestToken()
                         print(requestToken)
                         print(requestTokenSecret)
                         let parameters = [
@@ -19,7 +24,7 @@ struct ContentView: View {
                             URLQueryItem(name: "request_token_secret", value: requestTokenSecret),
                         ]
                         let query = parameters.buildQueryString()
-                        guard let url = URL(string: "https://beluga.fm/oauth/authorize?\(query)") else {
+                        guard let url = URL(string: "\(Config.webBaseUrl)/oauth/authorize?\(query)") else {
                             throw ApiError.invalidEndpointUrl
                         }
 
@@ -37,6 +42,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(timelineModel: TimelineModel())
+        ContentView(timelineModel: TimelineModel()).environmentObject(OAuthModel())
     }
 }
