@@ -15,8 +15,9 @@ struct ContentView: View {
                     }
                     do {
                         let (requestToken, requestTokenSecret) = try await oAuthModel.fetchRequestToken()
-                        print(requestToken)
-                        print(requestTokenSecret)
+                        oAuthModel.requestToken = requestToken
+                        oAuthModel.requestTokenSecret = requestTokenSecret
+
                         let parameters = [
                             URLQueryItem(name: "consumer_key", value: Config.consumerKey),
                             URLQueryItem(name: "consumer_secret", value: Config.consumerSecret),

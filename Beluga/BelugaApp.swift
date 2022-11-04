@@ -8,24 +8,41 @@ struct BelugaApp: App {
             ContentView(timelineModel: TimelineModel()).environmentObject(oAuthModel).onOpenURL { url in
                 print(url)
                 guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
-                      let albumPath = components.path,
+                      let path = components.path,
                       let params = components.queryItems
                 else {
                     print("Invalid URL")
                     return
                 }
-                print(albumPath)
-                guard let accessToken = params.getValue(for: "access_token") else {
+                print(path)
+                guard let requestToken = params.getValue(for: "request_token") else {
                     return
                 }
-                guard let accessTokenSecret = params.getValue(for: "access_token_secret") else {
+                guard let verifier = params.getValue(for: "verifier") else {
                     return
                 }
-                DispatchQueue.main.async {
-                    oAuthModel.accessToken = accessToken
-                    oAuthModel.accessTokenSecret = accessTokenSecret
-                    print(accessToken)
-                    print(accessTokenSecret)
+                guard oAuthModel.requestToken == requestToken else {
+                    print("Invalid session")
+                    return
+                }
+                Task {
+                    do {
+                        guard let requestToken = oAuthModel.requestToken else {
+                            return
+                        }
+                        guard let requestTokenSecret = oAuthModel.requestTokenSecret else {
+                            return
+                        }
+                        let (accessToken, accessTokenSecret) = try await oAuthModel.fetchAccessToken(requestToken: requestToken, requestTokenSecret: requestTokenSecret, verifier: verifier)
+                        DispatchQueue.main.async {
+                            oAuthModel.accessToken = accessToken
+                            oAuthModel.accessTokenSecret = accessTokenSecret
+                            print(accessToken)
+                            print(accessTokenSecret)
+                        }
+                    } catch {
+                        print(error.localizedDescription)
+                    }
                 }
             }
         }
