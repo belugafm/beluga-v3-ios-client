@@ -36,6 +36,15 @@ struct ContentView: View {
                     }
                 }
             }
+            Button("Post") {
+                Task {
+                    do {
+                        let succeeded = try await oAuthModel.postMessage(channelId: 2, text: "OAuth認証テスト")
+                    } catch {
+                        print("Error:", error.localizedDescription)
+                    }
+                }
+            }
         }
         .padding()
     }

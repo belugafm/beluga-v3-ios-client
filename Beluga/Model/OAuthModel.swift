@@ -211,5 +211,55 @@ class OAuthModel: ObservableObject {
         }
     }
 
-    func getAuthorizationHeader() {}
+    func postMessage(channelId: Int, text: String) async throws -> Bool {
+        guard self.needsLogin() == false else {
+            return false
+        }
+        let httpMethod = "POST"
+        let baseURLString = "\(Config.apiBaseUrl)/message/post"
+
+        guard let url = URL(string: baseURLString) else {
+            throw ApiError.invalidEndpointUrl
+        }
+        let body = [
+            URLQueryItem(name: "channel_id", value: String(channelId)),
+            URLQueryItem(name: "text", value: text)
+        ]
+        var parameters = [
+            URLQueryItem(name: "oauth_consumer_key", value: Config.consumerKey),
+            URLQueryItem(name: "oauth_token", value: self.accessToken),
+            URLQueryItem(name: "oauth_nonce", value: UUID().uuidString),
+            URLQueryItem(name: "oauth_signature_method", value: "HMAC-SHA1"),
+            URLQueryItem(name: "oauth_timestamp", value: String(Int(Date().timeIntervalSince1970))),
+            URLQueryItem(name: "oauth_version", value: "1.0")
+        ] + body
+        let signature = getOAuthSignature(httpMethod: httpMethod,
+                                          baseURLString: baseURLString,
+                                          parameters: parameters,
+                                          consumerSecret: Config.consumerSecret,
+                                          oAuthTokenSecret: self.accessTokenSecret)
+        parameters.append(URLQueryItem(name: "oauth_signature", value: signature))
+
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = httpMethod
+        urlRequest.httpBody = body.buildQueryString().data(using: .utf8)
+        urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue(getOAuthAuthorizationHeader(parameters: parameters),
+                            forHTTPHeaderField: "Authorization")
+        do {
+            let (data, _) = try await URLSession.shared.data(for: urlRequest)
+            guard let jsonString = String(data: data, encoding: .utf8) else {
+                throw NSError(domain: "data is not string", code: 0)
+            }
+            print(jsonString)
+            let res = try JSONDecoder().decode(AccessTokenJsonResponse.self, from: data)
+            guard res.ok == true else {
+                throw NSError(domain: "res.ok is false", code: 0)
+            }
+            return true
+        } catch {
+            print(error.localizedDescription)
+            throw ApiError.failedToFetchData
+        }
+    }
 }
