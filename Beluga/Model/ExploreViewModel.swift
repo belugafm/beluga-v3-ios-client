@@ -9,12 +9,14 @@ enum ExploreViewModelError: Error {
 class ExploreViewModel: ObservableObject {
     private let oAuthRequest: OAuthRequest
     private var channelGroupId: Int
+    let channelGroup: ChannelGroup?
     @Published var failedToTransition: Bool = false
     @Published var channels: [Channel] = []
     @Published var channelGroups: [ChannelGroup] = []
-    init(oAuthRequest: OAuthRequest, channelGroupId: Int? = nil) {
+    init(oAuthRequest: OAuthRequest, channelGroup: ChannelGroup? = nil) {
         self.oAuthRequest = oAuthRequest
-        self.channelGroupId = channelGroupId ?? 1 // 1 is global channel group id
+        self.channelGroupId = channelGroup != nil ? channelGroup!.id : 1 // 1 is global channel group id
+        self.channelGroup = channelGroup
         Task {
             do {
                 try await self.transition()

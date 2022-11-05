@@ -17,11 +17,11 @@ struct ExploreView: View {
                     LazyVStack {
                         ForEach(viewModel.channelGroups) { channelGroup in
                             NavigationLink {
-                                ExploreView(viewModel: ExploreViewModel(oAuthRequest: oAuthRequest, channelGroupId: channelGroup.id))
+                                ExploreView(viewModel: ExploreViewModel(oAuthRequest: oAuthRequest, channelGroup: channelGroup))
                                     .environmentObject(oAuthRequest)
                             } label: {
                                 Text(channelGroup.name)
-                            }.navigationTitle(channelGroup.name)
+                            }
                         }
                     }
                     Text("チャンネル").bold()
@@ -32,6 +32,8 @@ struct ExploreView: View {
                     }
                 }
             }
+            .navigationTitle(viewModel.channelGroup != nil ? viewModel.channelGroup!.name : "探す")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

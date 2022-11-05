@@ -9,7 +9,7 @@ struct HomeView: View {
             Button {
                 Task {
                     do {
-                        let _ = try await api.postMessage(text: "投稿テスト", channelId: 2)
+                        let _ = try await api.postMessage(text: "投稿テスト", channelId: 5)
                     } catch {}
                 }
             } label: {

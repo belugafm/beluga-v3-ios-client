@@ -5,7 +5,7 @@ struct ExploreRootView: View {
     var body: some View {
         NavigationView {
             ExploreView(viewModel: ExploreViewModel(oAuthRequest: oAuthRequest)).environmentObject(oAuthRequest)
-        }
+        }.navigationBarTitleDisplayMode(.inline)
     }
 }
 
