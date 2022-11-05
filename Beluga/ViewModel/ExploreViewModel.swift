@@ -48,20 +48,13 @@ class ExploreViewModel: ObservableObject {
 
     func transition() async throws {
         do {
-            let channelGroups = try await listChannelGroups(channelGroupId: channelGroupId)
-            let channels = try await listChannels(channelGroupId: channelGroupId)
-            print("OK!")
-            DispatchQueue.main.async {
-                self.channelGroups = channelGroups
-                self.channels = channels
-                self.failedToTransition = false
-            }
+            channelGroups = try await listChannelGroups(channelGroupId: channelGroupId)
+            channels = try await listChannels(channelGroupId: channelGroupId)
+            failedToTransition = false
         } catch {
+            failedToTransition = true
             print(error)
             print(error.localizedDescription)
-            DispatchQueue.main.async {
-                self.failedToTransition = true
-            }
             throw ExploreViewModelError.failedToTransition
         }
     }

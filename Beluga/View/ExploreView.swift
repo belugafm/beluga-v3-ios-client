@@ -27,7 +27,11 @@ struct ExploreView: View {
                     Text("チャンネル").bold()
                     LazyVStack {
                         ForEach(viewModel.channels) { channel in
-                            Text(channel.status_string + " " + channel.name)
+                            NavigationLink {
+                                ChannelTimelineView(viewModel: ChannelTimelineViewModel(oAuthRequest: oAuthRequest, channel: channel))
+                            } label: {
+                                Text(channel.status_string + " " + channel.name)
+                            }
                         }
                     }
                 }

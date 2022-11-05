@@ -1,14 +1,12 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @EnvironmentObject var timelineModel: ChannelTimelineModel
     @EnvironmentObject var api: API
     @EnvironmentObject var oAuthRequest: OAuthRequest
     @State private var selectedIndex: Int = 0
     var body: some View {
         TabView(selection: $selectedIndex) {
             HomeView()
-                .environmentObject(self.timelineModel)
                 .environmentObject(self.api)
                 .tabItem {
                     VStack {
@@ -26,7 +24,6 @@ struct MainTabView: View {
                     }
                 }
             HomeView()
-                .environmentObject(self.timelineModel)
                 .environmentObject(self.api)
                 .tabItem {
                     VStack {
@@ -35,7 +32,6 @@ struct MainTabView: View {
                     }
                 }
             HomeView()
-                .environmentObject(self.timelineModel)
                 .environmentObject(self.api)
                 .tabItem {
                     VStack {
@@ -44,7 +40,6 @@ struct MainTabView: View {
                     }
                 }
             HomeView()
-                .environmentObject(self.timelineModel)
                 .environmentObject(self.api)
                 .tabItem {
                     VStack {
@@ -61,9 +56,8 @@ struct MainTabView_Previews: PreviewProvider {
         let oAuthCredential = OAuthCredential()
         let oAuthRequest = OAuthRequest(credential: oAuthCredential)
         let api = API(oAuthRequest: oAuthRequest)
-        let timelineModel = ChannelTimelineModel(oAuthRequest: oAuthRequest)
         MainTabView()
             .environmentObject(api)
-            .environmentObject(timelineModel)
+            .environmentObject(oAuthRequest)
     }
 }

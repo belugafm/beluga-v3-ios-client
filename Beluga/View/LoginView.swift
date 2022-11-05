@@ -34,11 +34,11 @@ struct LoginView: View {
                         ]
                         let query = parameters.buildQueryString()
                         guard let url = URL(string: "\(Config.webBaseUrl)/oauth/authorize?\(query)") else {
-                            throw ApiError.invalidEndpointUrl
+                            throw NSError()
                         }
 
-                        UIApplication.shared.open(url, options: [.universalLinksOnly: false], completionHandler: { _ in
-                        })
+                        UIApplication.shared.open(url, options: [.universalLinksOnly: false]) { _ in
+                        }
                     } catch {
                         print("Error:", error.localizedDescription)
                     }
