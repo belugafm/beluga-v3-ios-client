@@ -36,6 +36,8 @@
 		44FBB36829160C3A00642786 /* OAuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB36729160C3A00642786 /* OAuthError.swift */; };
 		44FBB36A29160EAB00642786 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB36929160EAB00642786 /* Endpoint.swift */; };
 		44FBB36C29161D4400642786 /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB36B29161D4400642786 /* EntityProtocol.swift */; };
+		44FBB37029162CC900642786 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB36F29162CC900642786 /* API.swift */; };
+		44FBB37229162EFF00642786 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB37129162EFF00642786 /* JsonResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,8 @@
 		44FBB36729160C3A00642786 /* OAuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthError.swift; sourceTree = "<group>"; };
 		44FBB36929160EAB00642786 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		44FBB36B29161D4400642786 /* EntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
+		44FBB36F29162CC900642786 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		44FBB37129162EFF00642786 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 			children = (
 				44FBB361291604C000642786 /* Extension.swift */,
 				44FBB36B29161D4400642786 /* EntityProtocol.swift */,
+				44FBB36F29162CC900642786 /* API.swift */,
 				44FBB36929160EAB00642786 /* Endpoint.swift */,
 				44FBB3602916048A00642786 /* OAuth */,
 				44FBB35B290D985200642786 /* Info.plist */,
@@ -207,6 +212,7 @@
 			children = (
 				44FBB356290D77FD00642786 /* OAuth */,
 				44FBB33B290BD45F00642786 /* Timeline */,
+				44FBB37129162EFF00642786 /* JsonResponse.swift */,
 			);
 			path = JsonResponse;
 			sourceTree = "<group>";
@@ -412,8 +418,10 @@
 				44FBB331290BCF2800642786 /* Message.swift in Sources */,
 				44FBB35F290EAF3500642786 /* AccessTokenJsonResponse.swift in Sources */,
 				44FBB358290D780D00642786 /* RequestTokenJsonResponse.swift in Sources */,
+				44FBB37029162CC900642786 /* API.swift in Sources */,
 				44FBB335290BD13300642786 /* User.swift in Sources */,
 				44FBB36829160C3A00642786 /* OAuthError.swift in Sources */,
+				44FBB37229162EFF00642786 /* JsonResponse.swift in Sources */,
 				44FBB337290BD22E00642786 /* ChannelGroup.swift in Sources */,
 				44FBB3052906A31000642786 /* ContentView.swift in Sources */,
 				44FBB342290BFB9800642786 /* MessageView.swift in Sources */,

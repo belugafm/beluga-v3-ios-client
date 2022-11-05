@@ -47,6 +47,10 @@ class OAuthRequest: ObservableObject {
         return urlRequest
     }
 
+    func getAuthorizedUrlRequest(endpoint: Endpoint, httpMethod: HTTPMethod, body: [URLQueryItem]) throws -> URLRequest {
+        return try self.getUrlRequest(endpoint: endpoint, httpMethod: httpMethod, body: body, oAuthParams: getOAuthParameters(oAuthToken: self.credential.accessToken), oAuthTokenSecret: self.credential.accessTokenSecret)
+    }
+
     func fetch<T>(request: URLRequest, _ type: T.Type) async throws -> T where T: CodableJSONResponse {
         let (data, _) = try await URLSession.shared.data(for: request)
         guard let jsonString = String(data: data, encoding: .utf8) else {

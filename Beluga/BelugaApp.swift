@@ -5,14 +5,14 @@ struct BelugaApp: App {
     @State var oAuthCredential: OAuthCredential
     @State var oAuthRequest: OAuthRequest
     init() {
-        var oAuthCredential = OAuthCredential()
+        let oAuthCredential = OAuthCredential()
         self.oAuthCredential = oAuthCredential
         self.oAuthRequest = OAuthRequest(credential: oAuthCredential)
     }
 
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(TimelineModel(oAuthRequest: oAuthRequest)).environmentObject(oAuthCredential).environmentObject(oAuthRequest).onOpenURL { url in
+            ContentView().environmentObject(TimelineModel(oAuthRequest: oAuthRequest)).environmentObject(oAuthCredential).environmentObject(oAuthRequest).environmentObject(API(oAuthRequest: oAuthRequest)).onOpenURL { url in
                 print(url)
                 guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
                       let action = components.host,

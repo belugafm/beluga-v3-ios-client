@@ -4,6 +4,7 @@ struct ContentView: View {
     @EnvironmentObject var timelineModel: TimelineModel
     @EnvironmentObject var oAuthCredential: OAuthCredential
     @EnvironmentObject var oAuthRequest: OAuthRequest
+    @EnvironmentObject var api: API
     var body: some View {
         VStack {
             TimelineView().environmentObject(timelineModel)
@@ -48,7 +49,11 @@ struct ContentView: View {
                 }
             }
             Button("Post") {
-                Task {}
+                Task {
+                    do {
+                        let _ = try await api.postMessage(text: "投稿テスト", channelId: 2)
+                    } catch {}
+                }
             }
         }
         .padding()
@@ -59,6 +64,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let oAuthCredential = OAuthCredential()
         let oAuthRequest = OAuthRequest(credential: oAuthCredential)
-        ContentView().environmentObject(oAuthCredential).environmentObject(TimelineModel(oAuthRequest: oAuthRequest)).environmentObject(oAuthRequest)
+        ContentView().environmentObject(oAuthCredential).environmentObject(TimelineModel(oAuthRequest: oAuthRequest)).environmentObject(oAuthRequest).environmentObject(API(oAuthRequest: oAuthRequest))
     }
 }

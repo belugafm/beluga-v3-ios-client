@@ -6,6 +6,7 @@ enum Endpoint: String {
     case GenerateAccessToken = "/oauth/access_token"
     case GetChannelGroupTimeline = "/timeline/channel_group"
     case GetChannelTimeline = "/timeline/channel"
+    case PostMessage = "/message/post"
 }
 
 enum HTTPMethod: String {
