@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @EnvironmentObject var timelineModel: TimelineModel
+    @EnvironmentObject var timelineModel: ChannelTimelineModel
     @EnvironmentObject var api: API
     var body: some View {
         VStack {
@@ -29,6 +29,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let oAuthCredential = OAuthCredential()
         let oAuthRequest = OAuthRequest(credential: oAuthCredential)
-        HomeView().environmentObject(TimelineModel(oAuthRequest: oAuthRequest)).environmentObject(API(oAuthRequest: oAuthRequest))
+        HomeView().environmentObject(ChannelTimelineModel(oAuthRequest: oAuthRequest)).environmentObject(API(oAuthRequest: oAuthRequest))
     }
 }

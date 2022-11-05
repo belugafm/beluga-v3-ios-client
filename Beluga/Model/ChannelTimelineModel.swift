@@ -5,7 +5,7 @@ enum ApiError: Error {
     case failedToFetchData
 }
 
-class TimelineModel: ObservableObject {
+class ChannelTimelineModel: ObservableObject {
     private let oAuthRequest: OAuthRequest
     init(oAuthRequest: OAuthRequest) {
         self.oAuthRequest = oAuthRequest

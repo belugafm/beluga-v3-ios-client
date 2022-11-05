@@ -8,12 +8,12 @@ class OAuthRequest: ObservableObject {
 
     func getUrlRequestForRequestToken() throws -> URLRequest {
         let parameters = getOAuthParameters()
-        return try self.getUrlRequest(endpoint: .GenerateRequestToken, httpMethod: .POST, body: [], oAuthParams: parameters)
+        return try self.getUrlRequest(endpoint: .GenerateRequestToken, httpMethod: .POST, requestParams: [], oAuthParams: parameters)
     }
 
     func getUrlRequestForAccessToken(requestToken: String, requestTokenSecret: String, verifier: String) throws -> URLRequest {
         let parameters = getOAuthParameters(oAuthToken: requestToken)
-        return try self.getUrlRequest(endpoint: .GenerateAccessToken, httpMethod: .POST, body: [
+        return try self.getUrlRequest(endpoint: .GenerateAccessToken, httpMethod: .POST, requestParams: [
             URLQueryItem(name: "verifier", value: verifier),
             URLQueryItem(name: "request_token", value: requestToken)
         ], oAuthParams: parameters, oAuthTokenSecret: requestTokenSecret)
@@ -21,34 +21,42 @@ class OAuthRequest: ObservableObject {
 
     func getUrlRequest(endpoint: Endpoint, httpMethod: HTTPMethod, body: [URLQueryItem]) throws -> URLRequest {
         let parameters = getOAuthParameters(oAuthToken: self.credential.accessToken)
-        return try self.getUrlRequest(endpoint: endpoint, httpMethod: httpMethod, body: body, oAuthParams: parameters, oAuthTokenSecret: self.credential.accessTokenSecret)
+        return try self.getUrlRequest(endpoint: endpoint, httpMethod: httpMethod, requestParams: body, oAuthParams: parameters, oAuthTokenSecret: self.credential.accessTokenSecret)
     }
 
-    func getUrlRequest(endpoint: Endpoint, httpMethod: HTTPMethod, body: [URLQueryItem], oAuthParams: [URLQueryItem], oAuthTokenSecret: String? = nil) throws -> URLRequest {
-        let baseURLString = "\(Config.apiBaseUrl)\(endpoint.rawValue)"
+    func getUrlRequest(endpoint: Endpoint, httpMethod: HTTPMethod, requestParams: [URLQueryItem], oAuthParams: [URLQueryItem], oAuthTokenSecret: String? = nil) throws -> URLRequest {
+//        GETリクエストの場合、OAuthの署名に使うURLは?以降を含めないので注意
+        let baseUrlString = "\(Config.apiBaseUrl)\(endpoint.rawValue)"
+        var requestUrlString = baseUrlString
+        if httpMethod == .GET {
+            requestUrlString += "?" + requestParams.buildQueryString()
+        }
+        print(requestUrlString)
 
-        guard let url = URL(string: baseURLString) else {
+        guard let url = URL(string: requestUrlString) else {
             throw OAuthError.invalidEndpointUrl
         }
-        var parameters = oAuthParams + body
+        var signatureParams = oAuthParams + requestParams
         let signature = getOAuthSignature(httpMethod: httpMethod.rawValue,
-                                          baseURLString: baseURLString,
-                                          parameters: parameters,
+                                          baseURLString: baseUrlString,
+                                          parameters: signatureParams,
                                           consumerSecret: Config.consumerSecret,
                                           oAuthTokenSecret: oAuthTokenSecret)
-        parameters.append(URLQueryItem(name: "oauth_signature", value: signature))
+        signatureParams.append(URLQueryItem(name: "oauth_signature", value: signature))
 
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = httpMethod.rawValue
-        urlRequest.httpBody = body.buildQueryString().data(using: .utf8)
+        if httpMethod == .POST {
+            urlRequest.httpBody = requestParams.buildQueryString().data(using: .utf8)
+        }
         urlRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        urlRequest.setValue(getOAuthAuthorizationHeader(parameters: parameters),
+        urlRequest.setValue(getOAuthAuthorizationHeader(parameters: signatureParams),
                             forHTTPHeaderField: "Authorization")
         return urlRequest
     }
 
     func getAuthorizedUrlRequest(endpoint: Endpoint, httpMethod: HTTPMethod, body: [URLQueryItem]) throws -> URLRequest {
-        return try self.getUrlRequest(endpoint: endpoint, httpMethod: httpMethod, body: body, oAuthParams: getOAuthParameters(oAuthToken: self.credential.accessToken), oAuthTokenSecret: self.credential.accessTokenSecret)
+        return try self.getUrlRequest(endpoint: endpoint, httpMethod: httpMethod, requestParams: body, oAuthParams: getOAuthParameters(oAuthToken: self.credential.accessToken), oAuthTokenSecret: self.credential.accessTokenSecret)
     }
 
     func fetch<T>(request: URLRequest, _ type: T.Type) async throws -> T where T: CodableJSONResponse {

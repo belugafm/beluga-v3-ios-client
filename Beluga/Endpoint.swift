@@ -7,6 +7,8 @@ enum Endpoint: String {
     case GetChannelGroupTimeline = "/timeline/channel_group"
     case GetChannelTimeline = "/timeline/channel"
     case PostMessage = "/message/post"
+    case ListChannelGroups = "/channel_group/list_channel_groups"
+    case ListChannels = "/channel_group/list_channels"
 }
 
 enum HTTPMethod: String {
