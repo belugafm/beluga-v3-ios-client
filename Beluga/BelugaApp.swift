@@ -2,46 +2,60 @@ import SwiftUI
 
 @main
 struct BelugaApp: App {
-    @State var oAuthModel = OAuthModel()
+    @State var oAuthCredential: OAuthCredential
+    @State var oAuthRequest: OAuthRequest
+    init() {
+        var oAuthCredential = OAuthCredential()
+        self.oAuthCredential = oAuthCredential
+        self.oAuthRequest = OAuthRequest(credential: oAuthCredential)
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView(timelineModel: TimelineModel()).environmentObject(oAuthModel).onOpenURL { url in
+            ContentView().environmentObject(TimelineModel(oAuthRequest: oAuthRequest)).environmentObject(oAuthCredential).environmentObject(oAuthRequest).onOpenURL { url in
                 print(url)
                 guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
-                      let path = components.path,
+                      let action = components.host,
                       let params = components.queryItems
                 else {
                     print("Invalid URL")
                     return
                 }
-                print(path)
-                guard let requestToken = params.getValue(for: "request_token") else {
-                    return
-                }
-                guard let verifier = params.getValue(for: "verifier") else {
-                    return
-                }
-                guard oAuthModel.requestToken == requestToken else {
-                    print("Invalid session")
-                    return
-                }
-                Task {
-                    do {
-                        guard let requestToken = oAuthModel.requestToken else {
-                            return
+                if action == "signin" {
+                    guard let incomingRequestToken = params.getValue(for: "request_token") else {
+                        return
+                    }
+                    guard let verifier = params.getValue(for: "verifier") else {
+                        return
+                    }
+                    Task {
+                        do {
+                            guard let requestToken = oAuthCredential.requestToken else {
+                                return
+                            }
+                            guard requestToken == incomingRequestToken else {
+                                return
+                            }
+                            guard let requestTokenSecret = oAuthCredential.requestTokenSecret else {
+                                return
+                            }
+                            let request = try oAuthRequest.getUrlRequestForAccessToken(requestToken: requestToken, requestTokenSecret: requestTokenSecret, verifier: verifier)
+                            let response = try await oAuthRequest.fetch(request: request, AccessTokenJsonResponse.self)
+                            guard let accessToken = response.access_token else {
+                                return
+                            }
+                            guard let accessTokenSecret = response.access_token_secret else {
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                oAuthCredential.accessToken = accessToken
+                                oAuthCredential.accessTokenSecret = accessTokenSecret
+                                print(accessToken)
+                                print(accessTokenSecret)
+                            }
+                        } catch {
+                            print(error.localizedDescription)
                         }
-                        guard let requestTokenSecret = oAuthModel.requestTokenSecret else {
-                            return
-                        }
-                        let (accessToken, accessTokenSecret) = try await oAuthModel.fetchAccessToken(requestToken: requestToken, requestTokenSecret: requestTokenSecret, verifier: verifier)
-                        DispatchQueue.main.async {
-                            oAuthModel.accessToken = accessToken
-                            oAuthModel.accessTokenSecret = accessTokenSecret
-                            print(accessToken)
-                            print(accessTokenSecret)
-                        }
-                    } catch {
-                        print(error.localizedDescription)
                     }
                 }
             }

@@ -1,6 +1,8 @@
 import Foundation
 
-struct TimelineChannelJsonResponse: Codable {
+struct TimelineChannelJsonResponse: CodableJSONResponse {
     let ok: Bool
+    let error_code: String?
+    let description: [String]?
     let messages: [Message]?
 }

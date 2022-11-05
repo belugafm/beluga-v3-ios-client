@@ -1,6 +1,6 @@
 import Foundation
 
-struct AccessTokenJsonResponse: Codable {
+struct AccessTokenJsonResponse: CodableJSONResponse {
     let ok: Bool
     let error_code: String?
     let description: [String]?

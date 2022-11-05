@@ -5,7 +5,12 @@ enum ApiError: Error {
     case failedToFetchData
 }
 
-struct TimelineModel {
+class TimelineModel: ObservableObject {
+    private let oAuthRequest: OAuthRequest
+    init(oAuthRequest: OAuthRequest) {
+        self.oAuthRequest = oAuthRequest
+    }
+
     func fetchMessages() async throws -> [Message] {
         guard let url = URL(string: "\(Config.apiBaseUrl)/timeline/channel_debug?channel_id=2") else { throw ApiError.invalidEndpointUrl }
         do {

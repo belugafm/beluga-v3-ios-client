@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TimelineView: View {
-    let timelineModel = TimelineModel()
+    @EnvironmentObject var timelineModel: TimelineModel
     @ObservedObject var timelineViewModel = TimelineViewModel()
     var body: some View {
         VStack {
