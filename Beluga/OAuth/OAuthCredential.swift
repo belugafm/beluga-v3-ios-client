@@ -13,6 +13,8 @@ class OAuthCredential: ObservableObject {
         if self.accessTokenSecret == "null" {
             return true
         }
+        print(self.accessToken)
+        print(self.accessToken == "null")
         return false
     }
 

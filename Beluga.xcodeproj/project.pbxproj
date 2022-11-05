@@ -38,6 +38,7 @@
 		44FBB36C29161D4400642786 /* EntityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB36B29161D4400642786 /* EntityProtocol.swift */; };
 		44FBB37029162CC900642786 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB36F29162CC900642786 /* API.swift */; };
 		44FBB37229162EFF00642786 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB37129162EFF00642786 /* JsonResponse.swift */; };
+		44FBB3762916396D00642786 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3752916396D00642786 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		44FBB36B29161D4400642786 /* EntityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityProtocol.swift; sourceTree = "<group>"; };
 		44FBB36F29162CC900642786 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		44FBB37129162EFF00642786 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
+		44FBB3752916396D00642786 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,15 +148,15 @@
 				44FBB361291604C000642786 /* Extension.swift */,
 				44FBB36B29161D4400642786 /* EntityProtocol.swift */,
 				44FBB36F29162CC900642786 /* API.swift */,
+				44FBB3742916305D00642786 /* Page */,
 				44FBB36929160EAB00642786 /* Endpoint.swift */,
 				44FBB3602916048A00642786 /* OAuth */,
 				44FBB35B290D985200642786 /* Info.plist */,
 				44FBB3022906A31000642786 /* BelugaApp.swift */,
 				44FBB34D290D76C200642786 /* Config */,
-				44FBB33E290BFB2C00642786 /* View */,
+				44FBB33E290BFB2C00642786 /* Component */,
 				44FBB33A290BD42200642786 /* JsonResponse */,
 				44FBB32F290BCF1C00642786 /* Entity */,
-				44FBB3042906A31000642786 /* ContentView.swift */,
 				44FBB32C290BCD3500642786 /* Model */,
 				44FBB3062906A31100642786 /* Assets.xcassets */,
 				44FBB3082906A31100642786 /* Preview Content */,
@@ -225,13 +227,13 @@
 			path = Timeline;
 			sourceTree = "<group>";
 		};
-		44FBB33E290BFB2C00642786 /* View */ = {
+		44FBB33E290BFB2C00642786 /* Component */ = {
 			isa = PBXGroup;
 			children = (
 				44FBB340290BFB8600642786 /* Message */,
 				44FBB33F290BFB4000642786 /* Timeline */,
 			);
-			path = View;
+			path = Component;
 			sourceTree = "<group>";
 		};
 		44FBB33F290BFB4000642786 /* Timeline */ = {
@@ -279,6 +281,15 @@
 				44FBB365291609E600642786 /* OAuthCredential.swift */,
 			);
 			path = OAuth;
+			sourceTree = "<group>";
+		};
+		44FBB3742916305D00642786 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				44FBB3042906A31000642786 /* ContentView.swift */,
+				44FBB3752916396D00642786 /* LoginView.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +441,7 @@
 				44FBB36C29161D4400642786 /* EntityProtocol.swift in Sources */,
 				44FBB339290BD31600642786 /* File.swift in Sources */,
 				44FBB366291609E600642786 /* OAuthCredential.swift in Sources */,
+				44FBB3762916396D00642786 /* LoginView.swift in Sources */,
 				44FBB362291604C000642786 /* Extension.swift in Sources */,
 				44FBB36A29160EAB00642786 /* Endpoint.swift in Sources */,
 				44FBB32E290BCD6F00642786 /* TimelineModel.swift in Sources */,
