@@ -67,7 +67,7 @@ struct BelugaApp: App {
                         }
                     }
             } else {
-                ContentView()
+                MainTabView()
                     .environmentObject(TimelineModel(oAuthRequest: oAuthRequest))
                     .environmentObject(API(oAuthRequest: oAuthRequest))
             }

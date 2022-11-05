@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		44FBB3032906A31000642786 /* BelugaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3022906A31000642786 /* BelugaApp.swift */; };
-		44FBB3052906A31000642786 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3042906A31000642786 /* ContentView.swift */; };
+		44FBB3052906A31000642786 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3042906A31000642786 /* HomeView.swift */; };
 		44FBB3072906A31100642786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FBB3062906A31100642786 /* Assets.xcassets */; };
 		44FBB30A2906A31100642786 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FBB3092906A31100642786 /* Preview Assets.xcassets */; };
 		44FBB3142906A31200642786 /* BelugaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3132906A31200642786 /* BelugaTests.swift */; };
@@ -39,6 +39,7 @@
 		44FBB37029162CC900642786 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB36F29162CC900642786 /* API.swift */; };
 		44FBB37229162EFF00642786 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB37129162EFF00642786 /* JsonResponse.swift */; };
 		44FBB3762916396D00642786 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3752916396D00642786 /* LoginView.swift */; };
+		44FBB378291643A800642786 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB377291643A800642786 /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,7 @@
 /* Begin PBXFileReference section */
 		44FBB2FF2906A31000642786 /* Beluga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beluga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FBB3022906A31000642786 /* BelugaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelugaApp.swift; sourceTree = "<group>"; };
-		44FBB3042906A31000642786 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		44FBB3042906A31000642786 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		44FBB3062906A31100642786 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44FBB3092906A31100642786 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44FBB30F2906A31200642786 /* BelugaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BelugaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +96,7 @@
 		44FBB36F29162CC900642786 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		44FBB37129162EFF00642786 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 		44FBB3752916396D00642786 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		44FBB377291643A800642786 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			children = (
 				44FBB340290BFB8600642786 /* Message */,
 				44FBB33F290BFB4000642786 /* Timeline */,
+				44FBB377291643A800642786 /* MainTabView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -286,7 +289,7 @@
 		44FBB3742916305D00642786 /* Page */ = {
 			isa = PBXGroup;
 			children = (
-				44FBB3042906A31000642786 /* ContentView.swift */,
+				44FBB3042906A31000642786 /* HomeView.swift */,
 				44FBB3752916396D00642786 /* LoginView.swift */,
 			);
 			path = Page;
@@ -434,13 +437,14 @@
 				44FBB36829160C3A00642786 /* OAuthError.swift in Sources */,
 				44FBB37229162EFF00642786 /* JsonResponse.swift in Sources */,
 				44FBB337290BD22E00642786 /* ChannelGroup.swift in Sources */,
-				44FBB3052906A31000642786 /* ContentView.swift in Sources */,
+				44FBB3052906A31000642786 /* HomeView.swift in Sources */,
 				44FBB342290BFB9800642786 /* MessageView.swift in Sources */,
 				44FBB34A290D74B200642786 /* OAuthFunctions.swift in Sources */,
 				44FBB3032906A31000642786 /* BelugaApp.swift in Sources */,
 				44FBB36C29161D4400642786 /* EntityProtocol.swift in Sources */,
 				44FBB339290BD31600642786 /* File.swift in Sources */,
 				44FBB366291609E600642786 /* OAuthCredential.swift in Sources */,
+				44FBB378291643A800642786 /* MainTabView.swift in Sources */,
 				44FBB3762916396D00642786 /* LoginView.swift in Sources */,
 				44FBB362291604C000642786 /* Extension.swift in Sources */,
 				44FBB36A29160EAB00642786 /* Endpoint.swift in Sources */,

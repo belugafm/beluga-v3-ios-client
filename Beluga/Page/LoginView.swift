@@ -5,7 +5,8 @@ struct LoginView: View {
     @EnvironmentObject var oAuthRequest: OAuthRequest
     var body: some View {
         VStack {
-            Button("Login") {
+            Text("認証情報を取得する必要があります。「ログインする」を押すとブラウザが起動するのでログイン後「認証する」ボタンを押してください。").padding(10)
+            Button {
                 Task {
                     guard oAuthCredential.needsLogin() else {
                         return
@@ -42,6 +43,13 @@ struct LoginView: View {
                         print("Error:", error.localizedDescription)
                     }
                 }
+            } label: {
+                Text("ログインする")
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .foregroundColor(.white)
+                    .background(Color(uiColor: .systemBlue))
+                    .clipShape(Capsule())
             }
         }
         .padding()
