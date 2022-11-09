@@ -9,6 +9,7 @@ enum Endpoint: String {
     case PostMessage = "/message/post"
     case ListChannelGroups = "/channel_group/list_channel_groups"
     case ListChannels = "/channel_group/list_channels"
+    case ShowChannelGroup = "/channel_group/show"
 }
 
 enum HTTPMethod: String {

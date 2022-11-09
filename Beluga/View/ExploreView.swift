@@ -10,6 +10,11 @@ struct ExploreView: View {
     var body: some View {
         VStack {
             ScrollView {
+                if viewModel.channelGroup != nil {
+                    VStack {
+                        ExploreViewChannelGroupCard(channelGroup: viewModel.channelGroup!)
+                    }
+                }
                 VStack {
                     HStack {
                         Text("チャンネルグループ").bold()
@@ -26,24 +31,29 @@ struct ExploreView: View {
                         }
                     }
                 }
-                .padding(.bottom, 10)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 10)
 
-                HStack {
-                    Text("チャンネル").bold()
-                    Spacer()
-                }
-                LazyVStack {
-                    ForEach(viewModel.channels) { channel in
-                        NavigationLink {
-                            ChannelTimelineView(viewModel: ChannelTimelineViewModel(oAuthRequest: oAuthRequest, channel: channel))
-                        } label: {
-                            ExploreViewChannelLink(channel: channel)
+                Divider()
+
+                VStack {
+                    HStack {
+                        Text("チャンネル").bold()
+                        Spacer()
+                    }
+                    LazyVStack {
+                        ForEach(viewModel.channels) { channel in
+                            NavigationLink {
+                                ChannelTimelineView(viewModel: ChannelTimelineViewModel(oAuthRequest: oAuthRequest, channel: channel))
+                            } label: {
+                                ExploreViewChannelLink(channel: channel)
+                            }
                         }
                     }
                 }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 10)
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 20)
         }
         .navigationTitle(viewModel.channelGroup != nil ? viewModel.channelGroup!.name : "探す")
         .navigationBarTitleDisplayMode(.inline)

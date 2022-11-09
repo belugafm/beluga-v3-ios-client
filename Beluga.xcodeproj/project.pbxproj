@@ -11,6 +11,9 @@
 		44B8C6BA291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6B9291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift */; };
 		44B8C6BC291BD0DA004AAC8C /* SuperEllipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6BB291BD0DA004AAC8C /* SuperEllipse.swift */; };
 		44B8C6BE291BD5CB004AAC8C /* ExploreViewChannelLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6BD291BD5CB004AAC8C /* ExploreViewChannelLink.swift */; };
+		44B8C6C0291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6BF291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift */; };
+		44B8C6C2291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C1291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift */; };
+		44B8C6C4291C0ECE004AAC8C /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C3291C0ECE004AAC8C /* AvatarImage.swift */; };
 		44FBB3032906A31000642786 /* BelugaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3022906A31000642786 /* BelugaApp.swift */; };
 		44FBB3052906A31000642786 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3042906A31000642786 /* HomeView.swift */; };
 		44FBB3072906A31100642786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FBB3062906A31100642786 /* Assets.xcassets */; };
@@ -73,6 +76,9 @@
 		44B8C6B9291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewChannelGroupLink.swift; sourceTree = "<group>"; };
 		44B8C6BB291BD0DA004AAC8C /* SuperEllipse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperEllipse.swift; sourceTree = "<group>"; };
 		44B8C6BD291BD5CB004AAC8C /* ExploreViewChannelLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewChannelLink.swift; sourceTree = "<group>"; };
+		44B8C6BF291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewChannelGroupCard.swift; sourceTree = "<group>"; };
+		44B8C6C1291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelGroupShowJsonResponse.swift; sourceTree = "<group>"; };
+		44B8C6C3291C0ECE004AAC8C /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImage.swift; sourceTree = "<group>"; };
 		44FBB2FF2906A31000642786 /* Beluga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beluga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FBB3022906A31000642786 /* BelugaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelugaApp.swift; sourceTree = "<group>"; };
 		44FBB3042906A31000642786 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				44B8C6B9291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift */,
+				44B8C6BF291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift */,
 				44B8C6BD291BD5CB004AAC8C /* ExploreViewChannelLink.swift */,
 			);
 			path = ExploreView;
@@ -181,6 +188,7 @@
 				44FBB36B29161D4400642786 /* EntityProtocol.swift */,
 				44B8C6B6291BC2FE004AAC8C /* Color.swift */,
 				44B8C6BB291BD0DA004AAC8C /* SuperEllipse.swift */,
+				44B8C6C3291C0ECE004AAC8C /* AvatarImage.swift */,
 				44FBB36F29162CC900642786 /* API.swift */,
 				44FBB36929160EAB00642786 /* Endpoint.swift */,
 				44FBB3742916305D00642786 /* View */,
@@ -333,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				44FBB37E291655EE00642786 /* ChannelGroupListChannelGroupsJsonResponse.swift */,
+				44B8C6C1291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift */,
 				44FBB3802916565200642786 /* ChannelGroupListChannelsJsonResponse.swift */,
 			);
 			path = ChannelGroup;
@@ -474,6 +483,7 @@
 				44FBB37A2916538E00642786 /* ExploreRootView.swift in Sources */,
 				44FBB364291606DE00642786 /* OAuthRequest.swift in Sources */,
 				44FBB331290BCF2800642786 /* Message.swift in Sources */,
+				44B8C6C4291C0ECE004AAC8C /* AvatarImage.swift in Sources */,
 				44FBB37C2916541900642786 /* ExploreViewModel.swift in Sources */,
 				44FBB35F290EAF3500642786 /* AccessTokenJsonResponse.swift in Sources */,
 				44FBB358290D780D00642786 /* RequestTokenJsonResponse.swift in Sources */,
@@ -486,6 +496,7 @@
 				44FBB3052906A31000642786 /* HomeView.swift in Sources */,
 				44FBB342290BFB9800642786 /* MessageView.swift in Sources */,
 				44FBB34A290D74B200642786 /* OAuthFunctions.swift in Sources */,
+				44B8C6C2291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift in Sources */,
 				44B8C6BC291BD0DA004AAC8C /* SuperEllipse.swift in Sources */,
 				44FBB3032906A31000642786 /* BelugaApp.swift in Sources */,
 				44FBB36C29161D4400642786 /* EntityProtocol.swift in Sources */,
@@ -494,6 +505,7 @@
 				44FBB366291609E600642786 /* OAuthCredential.swift in Sources */,
 				44B8C6BA291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift in Sources */,
 				44FBB38329165DA900642786 /* ExploreView.swift in Sources */,
+				44B8C6C0291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift in Sources */,
 				44FBB378291643A800642786 /* MainTabView.swift in Sources */,
 				44FBB3762916396D00642786 /* LoginView.swift in Sources */,
 				44FBB362291604C000642786 /* Extension.swift in Sources */,

@@ -1,6 +1,28 @@
 // https://blog.personal-factory.com/2021/01/30/how-to-create-clubhouse-super-ellipse-by-swiftui/
 import Foundation
+import GameplayKit
 import SwiftUI
+
+struct UInt64RandomNumberGenerator: RandomNumberGenerator {
+    mutating func next() -> UInt64 {
+        // GKRandom produces values in [INT32_MIN, INT32_MAX] range; hence we need two numbers to produce 64-bit value.
+        let next1 = UInt64(bitPattern: Int64(gkrandom.nextInt()))
+        let next2 = UInt64(bitPattern: Int64(gkrandom.nextInt()))
+        return next1 ^ (next2 << 32)
+    }
+
+    init(seed: UInt64) {
+        self.gkrandom = GKMersenneTwisterRandomSource(seed: seed)
+    }
+
+    private let gkrandom: GKRandom
+}
+
+func randomColor(seed: Int) -> UIColor {
+    var generator = UInt64RandomNumberGenerator(seed: UInt64(seed))
+    let hue = Float.random(in: 0 ... 1, using: &generator)
+    return UIColor(hue: CGFloat(hue), saturation: 0.5, brightness: 1, alpha: 1)
+}
 
 struct SuperEllipseShape: Shape {
     let rate: CGFloat

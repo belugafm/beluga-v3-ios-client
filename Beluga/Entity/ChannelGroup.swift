@@ -7,4 +7,5 @@ struct ChannelGroup: Identifiable, Codable {
     let description: String?
     let parent_id: Int
     let message_count: Int
+    let image_url: String?
 }

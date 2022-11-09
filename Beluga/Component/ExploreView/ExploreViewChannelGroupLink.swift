@@ -6,10 +6,7 @@ struct ExploreViewChannelGroupLink: View {
         ZStack {
             MyColor.chevlonMenuBgColor
             HStack {
-                Image(uiImage: UIImage())
-                    .frame(width: 40, height: 40)
-                    .background(Color.yellow)
-                    .clipShape(SuperEllipseShape(rate: 0.75))
+                AvatarImage(url: channelGroup.image_url, id: channelGroup.id, width: 40, height: 40)
                 VStack {
                     HStack {
                         Text(channelGroup.name).font(.system(size: 20)).bold()
@@ -32,7 +29,7 @@ struct ExploreViewChannelGroupLink: View {
 
 struct ExploreViewChannelGroupLink_Previews: PreviewProvider {
     static var previews: some View {
-        let channelGroup = ChannelGroup(id: 1, name: "グループ名", unique_name: "channel_group", description: "説明", parent_id: 0, message_count: 1)
+        let channelGroup = ChannelGroup(id: 1, name: "グループ名", unique_name: "channel_group", description: "説明", parent_id: 0, message_count: 1, image_url: nil)
         ExploreViewChannelGroupLink(channelGroup: channelGroup)
     }
 }
