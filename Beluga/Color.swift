@@ -7,4 +7,5 @@ struct MyColor {
     static let tabViewBgColor = Color("TabViewBgColor")
     static let tabViewAccentColor = Color("TabViewAccentColor")
     static let navigationBarBgColor = Color("NavigationBarBgColor")
+    static let chevlonMenuBgColor = Color("ChevlonMenuBgColor")
 }

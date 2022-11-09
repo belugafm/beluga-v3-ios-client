@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		44B8C6B7291BC2FE004AAC8C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6B6291BC2FE004AAC8C /* Color.swift */; };
+		44B8C6BA291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6B9291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift */; };
+		44B8C6BC291BD0DA004AAC8C /* SuperEllipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6BB291BD0DA004AAC8C /* SuperEllipse.swift */; };
+		44B8C6BE291BD5CB004AAC8C /* ExploreViewChannelLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6BD291BD5CB004AAC8C /* ExploreViewChannelLink.swift */; };
 		44FBB3032906A31000642786 /* BelugaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3022906A31000642786 /* BelugaApp.swift */; };
 		44FBB3052906A31000642786 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3042906A31000642786 /* HomeView.swift */; };
 		44FBB3072906A31100642786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FBB3062906A31100642786 /* Assets.xcassets */; };
@@ -67,6 +70,9 @@
 
 /* Begin PBXFileReference section */
 		44B8C6B6291BC2FE004AAC8C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		44B8C6B9291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewChannelGroupLink.swift; sourceTree = "<group>"; };
+		44B8C6BB291BD0DA004AAC8C /* SuperEllipse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperEllipse.swift; sourceTree = "<group>"; };
+		44B8C6BD291BD5CB004AAC8C /* ExploreViewChannelLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewChannelLink.swift; sourceTree = "<group>"; };
 		44FBB2FF2906A31000642786 /* Beluga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beluga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FBB3022906A31000642786 /* BelugaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelugaApp.swift; sourceTree = "<group>"; };
 		44FBB3042906A31000642786 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -136,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44B8C6B8291BCA0A004AAC8C /* ExploreView */ = {
+			isa = PBXGroup;
+			children = (
+				44B8C6B9291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift */,
+				44B8C6BD291BD5CB004AAC8C /* ExploreViewChannelLink.swift */,
+			);
+			path = ExploreView;
+			sourceTree = "<group>";
+		};
 		44FBB2F62906A31000642786 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +180,7 @@
 				44FBB361291604C000642786 /* Extension.swift */,
 				44FBB36B29161D4400642786 /* EntityProtocol.swift */,
 				44B8C6B6291BC2FE004AAC8C /* Color.swift */,
+				44B8C6BB291BD0DA004AAC8C /* SuperEllipse.swift */,
 				44FBB36F29162CC900642786 /* API.swift */,
 				44FBB36929160EAB00642786 /* Endpoint.swift */,
 				44FBB3742916305D00642786 /* View */,
@@ -247,6 +263,7 @@
 		44FBB33E290BFB2C00642786 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				44B8C6B8291BCA0A004AAC8C /* ExploreView */,
 				44FBB340290BFB8600642786 /* Message */,
 				44FBB33F290BFB4000642786 /* Timeline */,
 			);
@@ -469,11 +486,13 @@
 				44FBB3052906A31000642786 /* HomeView.swift in Sources */,
 				44FBB342290BFB9800642786 /* MessageView.swift in Sources */,
 				44FBB34A290D74B200642786 /* OAuthFunctions.swift in Sources */,
+				44B8C6BC291BD0DA004AAC8C /* SuperEllipse.swift in Sources */,
 				44FBB3032906A31000642786 /* BelugaApp.swift in Sources */,
 				44FBB36C29161D4400642786 /* EntityProtocol.swift in Sources */,
 				44FBB339290BD31600642786 /* File.swift in Sources */,
 				44B8C6B7291BC2FE004AAC8C /* Color.swift in Sources */,
 				44FBB366291609E600642786 /* OAuthCredential.swift in Sources */,
+				44B8C6BA291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift in Sources */,
 				44FBB38329165DA900642786 /* ExploreView.swift in Sources */,
 				44FBB378291643A800642786 /* MainTabView.swift in Sources */,
 				44FBB3762916396D00642786 /* LoginView.swift in Sources */,
@@ -484,6 +503,7 @@
 				44FBB3812916565200642786 /* ChannelGroupListChannelsJsonResponse.swift in Sources */,
 				44FBB355290D77AE00642786 /* Config.swift in Sources */,
 				44FBB333290BD12700642786 /* Channel.swift in Sources */,
+				44B8C6BE291BD5CB004AAC8C /* ExploreViewChannelLink.swift in Sources */,
 				44FBB348290BFF2500642786 /* TimelineViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
