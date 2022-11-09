@@ -5,8 +5,8 @@ struct MainTabView: View {
     @EnvironmentObject var oAuthRequest: OAuthRequest
     @State private var selectedIndex: Int = 0
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(_colorLiteralRed: 28/255, green: 27/255, blue: 32/255, alpha: 1)
-        UITabBar.appearance().unselectedItemTintColor = UIColor(_colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.5)
+        UITabBar.appearance().backgroundColor = UIColor(MyColor.tabViewBgColor)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(MyColor.unselectedFontColor)
     }
 
     var body: some View {
@@ -53,7 +53,7 @@ struct MainTabView: View {
                     }
                 }
         }
-        .accentColor(.white)
+        .accentColor(MyColor.tabViewAccentColor)
     }
 }
 
