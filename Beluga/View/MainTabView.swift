@@ -4,8 +4,13 @@ struct MainTabView: View {
     @EnvironmentObject var api: API
     @EnvironmentObject var oAuthRequest: OAuthRequest
     @State private var selectedIndex: Int = 0
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(_colorLiteralRed: 28/255, green: 27/255, blue: 32/255, alpha: 1)
+        UITabBar.appearance().unselectedItemTintColor = UIColor(_colorLiteralRed: 1, green: 1, blue: 1, alpha: 0.5)
+    }
+
     var body: some View {
-        TabView(selection: $selectedIndex) {
+        TabView {
             HomeView()
                 .environmentObject(self.api)
                 .tabItem {
@@ -48,6 +53,7 @@ struct MainTabView: View {
                     }
                 }
         }
+        .accentColor(.white)
     }
 }
 
