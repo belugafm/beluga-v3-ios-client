@@ -1,35 +1,22 @@
 import Foundation
 
-enum ChannelTimelineModelError: Error {
+enum ChannelGroupTimelineModelError: Error {
     case failedToFetchMessages
 }
 
-class ChannelTimelineViewModel: ObservableObject {
+class ChannelGroupTimelineViewModel: ObservableObject {
     private let oAuthRequest: OAuthRequest
-    let channel: Channel
+    let channelGroup: ChannelGroup
     @Published var pendingRequest: Bool = false
     @Published var shouldScrollDown: Bool = false
     @Published var messages: [ObservableMessage] = []
-    init(oAuthRequest: OAuthRequest, channel: Channel) {
+    init(oAuthRequest: OAuthRequest, channelGroup: ChannelGroup) {
         self.oAuthRequest = oAuthRequest
-        self.channel = channel
+        self.channelGroup = channelGroup
         Task {
             do {
                 try await self.updateTimeline()
             } catch {}
-        }
-    }
-
-    func postMessage(text: String) async {
-        do {
-            let request = try oAuthRequest.getAuthorizedUrlRequest(endpoint: .PostMessage, httpMethod: .POST, body: [
-                URLQueryItem(name: "channel_id", value: String(channel.id)),
-                URLQueryItem(name: "text", value: text)
-            ])
-            let _ = try await oAuthRequest.fetch(request: request, JsonResponse.self)
-        } catch {
-            print(error)
-            print(error.localizedDescription)
         }
     }
 
@@ -53,6 +40,7 @@ class ChannelTimelineViewModel: ObservableObject {
             }
             let messages = mutableMessages
             DispatchQueue.main.async {
+                print(messages.count, "messages")
                 self.messages = messages
                 self.pendingRequest = false
                 self.shouldScrollDown = true
@@ -60,17 +48,17 @@ class ChannelTimelineViewModel: ObservableObject {
         } catch {
             print(error)
             print(error.localizedDescription)
-            throw ChannelTimelineModelError.failedToFetchMessages
+            throw ChannelGroupTimelineModelError.failedToFetchMessages
         }
     }
 
     func fetchMessages() async throws -> [Message] {
-        let request = try oAuthRequest.getAuthorizedUrlRequest(endpoint: .GetChannelTimeline, httpMethod: .GET, body: [
-            URLQueryItem(name: "channel_id", value: String(channel.id))
+        let request = try oAuthRequest.getAuthorizedUrlRequest(endpoint: .GetChannelGroupTimeline, httpMethod: .GET, body: [
+            URLQueryItem(name: "channel_group_id", value: String(channelGroup.id))
         ])
-        let response = try await oAuthRequest.fetch(request: request, ChannelTimelineJsonResponse.self)
+        let response = try await oAuthRequest.fetch(request: request, ChannelGroupTimelineJsonResponse.self)
         guard let messages = response.messages else {
-            throw ChannelTimelineModelError.failedToFetchMessages
+            throw ChannelGroupTimelineModelError.failedToFetchMessages
         }
         return messages
     }

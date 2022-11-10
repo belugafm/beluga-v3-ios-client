@@ -43,7 +43,7 @@ struct ExploreViewChannelsView: View {
                 LazyVStack {
                     ForEach(viewModel.channels) { channel in
                         NavigationLink {
-                            ChannelTimelineView(viewModel: ChannelTimelineViewModel(oAuthRequest: oAuthRequest, channel: channel))
+                            ChannelTimelineView(viewModel: ChannelTimelineViewModel(oAuthRequest: oAuthRequest, channel: channel)).environmentObject(oAuthRequest)
                         } label: {
                             ExploreViewChannelLink(channel: channel)
                         }

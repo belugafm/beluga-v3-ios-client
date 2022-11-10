@@ -21,7 +21,7 @@ struct ExploreRootView: View {
     }
 }
 
-struct Explore_Previews: PreviewProvider {
+struct ExploreRootView_Previews: PreviewProvider {
     static var previews: some View {
         let oAuthRequest = OAuthRequest(credential: OAuthCredential())
         ExploreRootView().environmentObject(oAuthRequest)

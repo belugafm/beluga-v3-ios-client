@@ -33,11 +33,16 @@ struct ExploreView: View {
             }
 
             TabView(selection: $selectedTab) {
-                ExploreViewChannelsView(viewModel: self.viewModel).environmentObject(self.oAuthRequest)
+                ExploreViewChannelsView(viewModel: self.viewModel)
+                    .environmentObject(self.oAuthRequest)
                     .tag(ExploreViewTabItemType.topic)
-                ExploreViewChannelsView(viewModel: self.viewModel).environmentObject(self.oAuthRequest)
-                    .tag(ExploreViewTabItemType.timeline)
-                ExploreViewChannelsView(viewModel: self.viewModel).environmentObject(self.oAuthRequest)
+                if viewModel.channelGroup != nil {
+                    ExploreViewTimeline(viewModel: ChannelGroupTimelineViewModel(oAuthRequest: self.oAuthRequest, channelGroup: self.viewModel.channelGroup!))
+                        .environmentObject(self.oAuthRequest)
+                        .tag(ExploreViewTabItemType.timeline)
+                }
+                ExploreViewChannelsView(viewModel: self.viewModel)
+                    .environmentObject(self.oAuthRequest)
                     .tag(ExploreViewTabItemType.description)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct ChannelTimelineView: View {
+struct ExploreViewTimeline: View {
     @EnvironmentObject var oAuthRequest: OAuthRequest
-    @ObservedObject var viewModel: ChannelTimelineViewModel
+    @ObservedObject var viewModel: ChannelGroupTimelineViewModel
     @State var inputText: String = ""
     @State var scrollProxy: ScrollViewProxy?
     @FocusState var keyboardVisible: Bool
@@ -50,46 +50,6 @@ struct ChannelTimelineView: View {
                     print(self.offsetY)
                 }
             }
-            Button {
-                Task {
-                    do {
-                        try await viewModel.updateTimeline()
-                    } catch {}
-                }
-            } label: {
-                Text("更新する")
-            }.padding(10)
-            HStack {
-                TextField("メッセージを入力", text: $inputText).focused($keyboardVisible)
-                Button {
-                    Task {
-                        do {
-                            await viewModel.postMessage(text: inputText)
-                            try await viewModel.updateTimeline()
-                            DispatchQueue.main.async {
-                                inputText = ""
-                                if viewModel.shouldScrollDown {
-                                    if let lastMessageId = viewModel.messages.last?.id {
-                                        scrollProxy?.scrollTo(lastMessageId)
-                                    }
-                                }
-                            }
-                        } catch {}
-                    }
-                } label: {
-                    Text("投稿する")
-                }
-            }.padding(10)
         }
-        .navigationTitle(viewModel.channel.status_string + " " + viewModel.channel.name)
-        .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct ChannelTimelineView_Previews: PreviewProvider {
-    static var previews: some View {
-        let oAuthRequest = OAuthRequest(credential: OAuthCredential())
-        let channel = Channel(id: 1, name: "hoge", unique_name: "fuga", message_count: 0, status_string: "#")
-        ChannelTimelineView(viewModel: ChannelTimelineViewModel(oAuthRequest: oAuthRequest, channel: channel))
     }
 }

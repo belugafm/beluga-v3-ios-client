@@ -16,6 +16,10 @@
 		44B8C6C4291C0ECE004AAC8C /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C3291C0ECE004AAC8C /* AvatarImage.swift */; };
 		44B8C6C6291CA056004AAC8C /* ExploreViewTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C5291CA056004AAC8C /* ExploreViewTabItem.swift */; };
 		44B8C6C9291CA3B2004AAC8C /* ExploreViewChannelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C8291CA3B2004AAC8C /* ExploreViewChannelsView.swift */; };
+		44B8C6CC291CBAE5004AAC8C /* ObservableMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6CB291CBAE5004AAC8C /* ObservableMessage.swift */; };
+		44B8C6CE291CC08D004AAC8C /* ExploreViewTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6CD291CC08D004AAC8C /* ExploreViewTimeline.swift */; };
+		44B8C6D0291CC105004AAC8C /* ChannelGroupTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6CF291CC105004AAC8C /* ChannelGroupTimelineViewModel.swift */; };
+		44B8C6D2291CC1B4004AAC8C /* ChannelGroupTimelineJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6D1291CC1B4004AAC8C /* ChannelGroupTimelineJsonResponse.swift */; };
 		44FBB3032906A31000642786 /* BelugaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3022906A31000642786 /* BelugaApp.swift */; };
 		44FBB3052906A31000642786 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3042906A31000642786 /* HomeView.swift */; };
 		44FBB3072906A31100642786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FBB3062906A31100642786 /* Assets.xcassets */; };
@@ -30,7 +34,7 @@
 		44FBB337290BD22E00642786 /* ChannelGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB336290BD22E00642786 /* ChannelGroup.swift */; };
 		44FBB339290BD31600642786 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB338290BD31600642786 /* File.swift */; };
 		44FBB33D290BD46900642786 /* ChannelTimelineJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB33C290BD46900642786 /* ChannelTimelineJsonResponse.swift */; };
-		44FBB342290BFB9800642786 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB341290BFB9800642786 /* MessageView.swift */; };
+		44FBB342290BFB9800642786 /* MessageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB341290BFB9800642786 /* MessageComponent.swift */; };
 		44FBB344290BFBDF00642786 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB343290BFBDF00642786 /* MessageViewModel.swift */; };
 		44FBB348290BFF2500642786 /* TimelineViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB347290BFF2500642786 /* TimelineViewComponent.swift */; };
 		44FBB34A290D74B200642786 /* OAuthFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB349290D74B200642786 /* OAuthFunctions.swift */; };
@@ -83,6 +87,10 @@
 		44B8C6C3291C0ECE004AAC8C /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImage.swift; sourceTree = "<group>"; };
 		44B8C6C5291CA056004AAC8C /* ExploreViewTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewTabItem.swift; sourceTree = "<group>"; };
 		44B8C6C8291CA3B2004AAC8C /* ExploreViewChannelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewChannelsView.swift; sourceTree = "<group>"; };
+		44B8C6CB291CBAE5004AAC8C /* ObservableMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableMessage.swift; sourceTree = "<group>"; };
+		44B8C6CD291CC08D004AAC8C /* ExploreViewTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewTimeline.swift; sourceTree = "<group>"; };
+		44B8C6CF291CC105004AAC8C /* ChannelGroupTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelGroupTimelineViewModel.swift; sourceTree = "<group>"; };
+		44B8C6D1291CC1B4004AAC8C /* ChannelGroupTimelineJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelGroupTimelineJsonResponse.swift; sourceTree = "<group>"; };
 		44FBB2FF2906A31000642786 /* Beluga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beluga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FBB3022906A31000642786 /* BelugaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelugaApp.swift; sourceTree = "<group>"; };
 		44FBB3042906A31000642786 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -100,7 +108,7 @@
 		44FBB336290BD22E00642786 /* ChannelGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelGroup.swift; sourceTree = "<group>"; };
 		44FBB338290BD31600642786 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		44FBB33C290BD46900642786 /* ChannelTimelineJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTimelineJsonResponse.swift; sourceTree = "<group>"; };
-		44FBB341290BFB9800642786 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		44FBB341290BFB9800642786 /* MessageComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComponent.swift; sourceTree = "<group>"; };
 		44FBB343290BFBDF00642786 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		44FBB347290BFF2500642786 /* TimelineViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewComponent.swift; sourceTree = "<group>"; };
 		44FBB349290D74B200642786 /* OAuthFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthFunctions.swift; sourceTree = "<group>"; };
@@ -168,9 +176,18 @@
 			children = (
 				44FBB38229165DA900642786 /* ExploreView.swift */,
 				44B8C6C8291CA3B2004AAC8C /* ExploreViewChannelsView.swift */,
+				44B8C6CD291CC08D004AAC8C /* ExploreViewTimeline.swift */,
 				44FBB3792916538E00642786 /* ExploreRootView.swift */,
 			);
 			path = ExploreView;
+			sourceTree = "<group>";
+		};
+		44B8C6CA291CBABC004AAC8C /* ObservableEntity */ = {
+			isa = PBXGroup;
+			children = (
+				44B8C6CB291CBAE5004AAC8C /* ObservableMessage.swift */,
+			);
+			path = ObservableEntity;
 			sourceTree = "<group>";
 		};
 		44FBB2F62906A31000642786 = {
@@ -211,6 +228,7 @@
 				44FBB34D290D76C200642786 /* Config */,
 				44FBB33E290BFB2C00642786 /* Component */,
 				44FBB33A290BD42200642786 /* JsonResponse */,
+				44B8C6CA291CBABC004AAC8C /* ObservableEntity */,
 				44FBB32F290BCF1C00642786 /* Entity */,
 				44FBB32C290BCD3500642786 /* ViewModel */,
 				44FBB3082906A31100642786 /* Preview Content */,
@@ -246,6 +264,8 @@
 		44FBB32C290BCD3500642786 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				44FBB343290BFBDF00642786 /* MessageViewModel.swift */,
+				44B8C6CF291CC105004AAC8C /* ChannelGroupTimelineViewModel.swift */,
 				44FBB32D290BCD6F00642786 /* ChannelTimelineViewModel.swift */,
 				44FBB37B2916541900642786 /* ExploreViewModel.swift */,
 			);
@@ -279,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				44FBB33C290BD46900642786 /* ChannelTimelineJsonResponse.swift */,
+				44B8C6D1291CC1B4004AAC8C /* ChannelGroupTimelineJsonResponse.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -304,8 +325,7 @@
 		44FBB340290BFB8600642786 /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				44FBB341290BFB9800642786 /* MessageView.swift */,
-				44FBB343290BFBDF00642786 /* MessageViewModel.swift */,
+				44FBB341290BFB9800642786 /* MessageComponent.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -492,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44FBB344290BFBDF00642786 /* MessageViewModel.swift in Sources */,
+				44B8C6CE291CC08D004AAC8C /* ExploreViewTimeline.swift in Sources */,
 				44FBB34F290D76CD00642786 /* Config.template.swift in Sources */,
 				44FBB37F291655EE00642786 /* ChannelGroupListChannelGroupsJsonResponse.swift in Sources */,
 				44FBB37A2916538E00642786 /* ExploreRootView.swift in Sources */,
@@ -503,13 +524,15 @@
 				44B8C6C6291CA056004AAC8C /* ExploreViewTabItem.swift in Sources */,
 				44FBB358290D780D00642786 /* RequestTokenJsonResponse.swift in Sources */,
 				44FBB37029162CC900642786 /* API.swift in Sources */,
+				44B8C6D2291CC1B4004AAC8C /* ChannelGroupTimelineJsonResponse.swift in Sources */,
+				44B8C6D0291CC105004AAC8C /* ChannelGroupTimelineViewModel.swift in Sources */,
 				44FBB335290BD13300642786 /* User.swift in Sources */,
 				44FBB36829160C3A00642786 /* OAuthError.swift in Sources */,
 				44FBB37229162EFF00642786 /* JsonResponse.swift in Sources */,
 				44FBB337290BD22E00642786 /* ChannelGroup.swift in Sources */,
 				44FBB38529167ADD00642786 /* ChannelTimelineView.swift in Sources */,
 				44FBB3052906A31000642786 /* HomeView.swift in Sources */,
-				44FBB342290BFB9800642786 /* MessageView.swift in Sources */,
+				44FBB342290BFB9800642786 /* MessageComponent.swift in Sources */,
 				44FBB34A290D74B200642786 /* OAuthFunctions.swift in Sources */,
 				44B8C6C2291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift in Sources */,
 				44B8C6BC291BD0DA004AAC8C /* SuperEllipse.swift in Sources */,
@@ -517,6 +540,7 @@
 				44FBB36C29161D4400642786 /* EntityProtocol.swift in Sources */,
 				44FBB339290BD31600642786 /* File.swift in Sources */,
 				44B8C6B7291BC2FE004AAC8C /* Color.swift in Sources */,
+				44B8C6CC291CBAE5004AAC8C /* ObservableMessage.swift in Sources */,
 				44FBB366291609E600642786 /* OAuthCredential.swift in Sources */,
 				44B8C6BA291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift in Sources */,
 				44FBB38329165DA900642786 /* ExploreView.swift in Sources */,
