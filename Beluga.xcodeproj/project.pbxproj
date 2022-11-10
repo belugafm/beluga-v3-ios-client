@@ -20,6 +20,7 @@
 		44B8C6CE291CC08D004AAC8C /* ExploreViewTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6CD291CC08D004AAC8C /* ExploreViewTimeline.swift */; };
 		44B8C6D0291CC105004AAC8C /* ChannelGroupTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6CF291CC105004AAC8C /* ChannelGroupTimelineViewModel.swift */; };
 		44B8C6D2291CC1B4004AAC8C /* ChannelGroupTimelineJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6D1291CC1B4004AAC8C /* ChannelGroupTimelineJsonResponse.swift */; };
+		44B8C6D4291D2753004AAC8C /* ExploreViewDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6D3291D2753004AAC8C /* ExploreViewDescriptionView.swift */; };
 		44FBB3032906A31000642786 /* BelugaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3022906A31000642786 /* BelugaApp.swift */; };
 		44FBB3052906A31000642786 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3042906A31000642786 /* HomeView.swift */; };
 		44FBB3072906A31100642786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FBB3062906A31100642786 /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		44B8C6CD291CC08D004AAC8C /* ExploreViewTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewTimeline.swift; sourceTree = "<group>"; };
 		44B8C6CF291CC105004AAC8C /* ChannelGroupTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelGroupTimelineViewModel.swift; sourceTree = "<group>"; };
 		44B8C6D1291CC1B4004AAC8C /* ChannelGroupTimelineJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelGroupTimelineJsonResponse.swift; sourceTree = "<group>"; };
+		44B8C6D3291D2753004AAC8C /* ExploreViewDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewDescriptionView.swift; sourceTree = "<group>"; };
 		44FBB2FF2906A31000642786 /* Beluga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beluga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FBB3022906A31000642786 /* BelugaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelugaApp.swift; sourceTree = "<group>"; };
 		44FBB3042906A31000642786 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				44FBB38229165DA900642786 /* ExploreView.swift */,
 				44B8C6C8291CA3B2004AAC8C /* ExploreViewChannelsView.swift */,
 				44B8C6CD291CC08D004AAC8C /* ExploreViewTimeline.swift */,
+				44B8C6D3291D2753004AAC8C /* ExploreViewDescriptionView.swift */,
 				44FBB3792916538E00642786 /* ExploreRootView.swift */,
 			);
 			path = ExploreView;
@@ -549,6 +552,7 @@
 				44FBB378291643A800642786 /* MainTabView.swift in Sources */,
 				44FBB3762916396D00642786 /* LoginView.swift in Sources */,
 				44FBB362291604C000642786 /* Extension.swift in Sources */,
+				44B8C6D4291D2753004AAC8C /* ExploreViewDescriptionView.swift in Sources */,
 				44FBB36A29160EAB00642786 /* Endpoint.swift in Sources */,
 				44FBB32E290BCD6F00642786 /* ChannelTimelineViewModel.swift in Sources */,
 				44FBB33D290BD46900642786 /* ChannelTimelineJsonResponse.swift in Sources */,

@@ -8,4 +8,5 @@ struct MyColor {
     static let tabViewAccentColor = Color("TabViewAccentColor")
     static let navigationBarBgColor = Color("NavigationBarBgColor")
     static let chevlonMenuBgColor = Color("ChevlonMenuBgColor")
+    static let dividerColor = Color("DividerColor")
 }

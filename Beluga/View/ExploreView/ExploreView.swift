@@ -16,12 +16,13 @@ struct ExploreView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             if viewModel.channelGroup != nil {
                 VStack {
                     ExploreViewChannelGroupCard(channelGroup: viewModel.channelGroup!)
-                }.padding(.top, 10)
-                Divider()
+                }
+                .padding(.top, 10)
+                .padding(.bottom, 10)
             }
 
             HStack {
@@ -31,6 +32,7 @@ struct ExploreView: View {
                     Spacer()
                 }
             }
+            Divider().background(MyColor.dividerColor)
 
             TabView(selection: $selectedTab) {
                 ExploreViewChannelsView(viewModel: self.viewModel)
@@ -40,10 +42,9 @@ struct ExploreView: View {
                     ExploreViewTimeline(viewModel: ChannelGroupTimelineViewModel(oAuthRequest: self.oAuthRequest, channelGroup: self.viewModel.channelGroup!))
                         .environmentObject(self.oAuthRequest)
                         .tag(ExploreViewTabItemType.timeline)
+                    ExploreViewDescriptionView(channelGroup: self.viewModel.channelGroup!)
+                        .tag(ExploreViewTabItemType.description)
                 }
-                ExploreViewChannelsView(viewModel: self.viewModel)
-                    .environmentObject(self.oAuthRequest)
-                    .tag(ExploreViewTabItemType.description)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
@@ -56,6 +57,6 @@ struct ExploreView_Previews: PreviewProvider {
     static var previews: some View {
         let oAuthRequest = OAuthRequest(credential: OAuthCredential())
         let viewModel = ExploreViewModel(oAuthRequest: oAuthRequest)
-        ExploreView(viewModel: viewModel)
+        ExploreView(viewModel: viewModel).environmentObject(oAuthRequest)
     }
 }

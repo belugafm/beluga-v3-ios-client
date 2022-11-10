@@ -21,8 +21,10 @@ struct ExploreViewChannelGroupCard: View {
             }
             if channelGroup.description != nil {
                 Text(channelGroup.description!)
-                    .font(.system(size: 16))
-                    .frame(maxWidth: .infinity, maxHeight: 100, alignment: .leading)
+                    .font(.system(size: 20))
+                    .frame(maxWidth: .infinity, alignment: .topLeading)
+                    .lineLimit(3)
+                    .padding(.vertical, 10)
             }
         }
         .padding(10)

@@ -9,7 +9,7 @@ enum ExploreViewModelError: Error {
 
 class ExploreViewModel: ObservableObject {
     private let oAuthRequest: OAuthRequest
-    var channelGroup: ChannelGroup?
+    @Published var channelGroup: ChannelGroup?
     @Published var failedToTransition: Bool = false
     @Published var channels: [Channel] = []
     @Published var channelGroups: [ChannelGroup] = []

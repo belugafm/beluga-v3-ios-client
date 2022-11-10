@@ -28,10 +28,8 @@ struct ExploreViewChannelsView: View {
                     }
                 }
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 10)
-
-            Divider()
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
 
             VStack {
                 if viewModel.channels.count > 0 {
@@ -50,8 +48,8 @@ struct ExploreViewChannelsView: View {
                     }
                 }
             }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+            .padding(.top, 20)
         }
     }
 }
