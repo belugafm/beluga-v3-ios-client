@@ -14,6 +14,8 @@
 		44B8C6C0291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6BF291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift */; };
 		44B8C6C2291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C1291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift */; };
 		44B8C6C4291C0ECE004AAC8C /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C3291C0ECE004AAC8C /* AvatarImage.swift */; };
+		44B8C6C6291CA056004AAC8C /* ExploreViewTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C5291CA056004AAC8C /* ExploreViewTabItem.swift */; };
+		44B8C6C9291CA3B2004AAC8C /* ExploreViewChannelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8C6C8291CA3B2004AAC8C /* ExploreViewChannelsView.swift */; };
 		44FBB3032906A31000642786 /* BelugaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3022906A31000642786 /* BelugaApp.swift */; };
 		44FBB3052906A31000642786 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBB3042906A31000642786 /* HomeView.swift */; };
 		44FBB3072906A31100642786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44FBB3062906A31100642786 /* Assets.xcassets */; };
@@ -79,6 +81,8 @@
 		44B8C6BF291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewChannelGroupCard.swift; sourceTree = "<group>"; };
 		44B8C6C1291C0C0C004AAC8C /* ChannelGroupShowJsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelGroupShowJsonResponse.swift; sourceTree = "<group>"; };
 		44B8C6C3291C0ECE004AAC8C /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImage.swift; sourceTree = "<group>"; };
+		44B8C6C5291CA056004AAC8C /* ExploreViewTabItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewTabItem.swift; sourceTree = "<group>"; };
+		44B8C6C8291CA3B2004AAC8C /* ExploreViewChannelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewChannelsView.swift; sourceTree = "<group>"; };
 		44FBB2FF2906A31000642786 /* Beluga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beluga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44FBB3022906A31000642786 /* BelugaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BelugaApp.swift; sourceTree = "<group>"; };
 		44FBB3042906A31000642786 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -153,7 +157,18 @@
 			children = (
 				44B8C6B9291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift */,
 				44B8C6BF291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift */,
+				44B8C6C5291CA056004AAC8C /* ExploreViewTabItem.swift */,
 				44B8C6BD291BD5CB004AAC8C /* ExploreViewChannelLink.swift */,
+			);
+			path = ExploreView;
+			sourceTree = "<group>";
+		};
+		44B8C6C7291CA346004AAC8C /* ExploreView */ = {
+			isa = PBXGroup;
+			children = (
+				44FBB38229165DA900642786 /* ExploreView.swift */,
+				44B8C6C8291CA3B2004AAC8C /* ExploreViewChannelsView.swift */,
+				44FBB3792916538E00642786 /* ExploreRootView.swift */,
 			);
 			path = ExploreView;
 			sourceTree = "<group>";
@@ -329,8 +344,7 @@
 			children = (
 				44FBB377291643A800642786 /* MainTabView.swift */,
 				44FBB3042906A31000642786 /* HomeView.swift */,
-				44FBB3792916538E00642786 /* ExploreRootView.swift */,
-				44FBB38229165DA900642786 /* ExploreView.swift */,
+				44B8C6C7291CA346004AAC8C /* ExploreView */,
 				44FBB38429167ADD00642786 /* ChannelTimelineView.swift */,
 				44FBB3752916396D00642786 /* LoginView.swift */,
 			);
@@ -486,6 +500,7 @@
 				44B8C6C4291C0ECE004AAC8C /* AvatarImage.swift in Sources */,
 				44FBB37C2916541900642786 /* ExploreViewModel.swift in Sources */,
 				44FBB35F290EAF3500642786 /* AccessTokenJsonResponse.swift in Sources */,
+				44B8C6C6291CA056004AAC8C /* ExploreViewTabItem.swift in Sources */,
 				44FBB358290D780D00642786 /* RequestTokenJsonResponse.swift in Sources */,
 				44FBB37029162CC900642786 /* API.swift in Sources */,
 				44FBB335290BD13300642786 /* User.swift in Sources */,
@@ -505,6 +520,7 @@
 				44FBB366291609E600642786 /* OAuthCredential.swift in Sources */,
 				44B8C6BA291BCA28004AAC8C /* ExploreViewChannelGroupLink.swift in Sources */,
 				44FBB38329165DA900642786 /* ExploreView.swift in Sources */,
+				44B8C6C9291CA3B2004AAC8C /* ExploreViewChannelsView.swift in Sources */,
 				44B8C6C0291C0AB3004AAC8C /* ExploreViewChannelGroupCard.swift in Sources */,
 				44FBB378291643A800642786 /* MainTabView.swift in Sources */,
 				44FBB3762916396D00642786 /* LoginView.swift in Sources */,
